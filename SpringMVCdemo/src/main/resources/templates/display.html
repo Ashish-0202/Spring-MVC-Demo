@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Hello There!</h1>
+    <br>
+    <label>Hi <span th:text="${result}"></span></label>
+    <a th:href="@{/api/login}">Login</a>
+</body>
+</html>

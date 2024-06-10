@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Hello There!</h1>
+<br>
+<label>UserName: <span th:text="${users.username}"></span></label><br>
+<label>Password: <span th:text="${users.password}"></span></label><br>
+<label>Email: <span th:text="${users.email}"></span></label><br>
+<label>Gender: <span th:text="${users.gender}"></span></label><br>
+<label>Language choosed: <span th:text="${users.language}"></span></label><br>
+<label>Your System:</label><br>
+<ul>
+    <li  th:each="tempsystem : ${users.system}" th:text="${tempsystem}"></li>
+</ul>
+</body>
+</html>

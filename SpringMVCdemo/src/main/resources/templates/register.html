@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .registration-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .registration-form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .registration-form input[type="text"],
+        .registration-form input[type="email"],
+        .registration-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .registration-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+        .registration-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="registration-form">
+    <h2>User Registration</h2>
+    <form th:action="@{/registerUser}" th:object="${users}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" th:field="*{username}" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" required>
+        <label for="gender">Gender:</label>
+        <select id="gender" th:field="*{gender}" required>
+            <option th:each="tempo : ${gender}" th:value="${tempo}" th:text="${tempo}"></option>
+        </select>
+        <br>
+        Language you choose:
+        <br>
+        <input type="radio" th:field="*{language}" th:each="templang: ${languages}" th:value="${templang}" th:text="${templang}"/>
+        <br>
+        <br>
+        System:
+        <input type="checkbox" th:field="*{system}" th:each="tempsys: ${Systems}" th:value="${tempsys}" th:text="${tempsys}"/>
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+</body>
+</html>
